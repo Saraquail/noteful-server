@@ -23,17 +23,13 @@ app.use('/api/notes', notesRouter)
 app.use((error, req, res, next) => {
   let message
   if (NODE_ENV === 'production') {
-    message = 'Server error'
+    message = 'Server error.'
   }
   else {
     console.error(error)
     message = error.message
   }
   res.status(500).json(message)
-})
-
-app.get('/', (req, res) => {
-  res.send('Hello, boilerplate!')
 })
 
 module.exports = app
